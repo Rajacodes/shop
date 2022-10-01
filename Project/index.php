@@ -1,10 +1,9 @@
 <?php
-
-// Database
+session_start();
 include "connection.php";
 
 // Comment
-include "comment.php"
+require_once "comment.php";
 
 ?>
 <!doctype html>
@@ -65,8 +64,6 @@ include "comment.php"
 		<!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
-		
-		
 	
 		<!--welcome-hero start -->
 		<header id="home" class="welcome-hero">
@@ -232,57 +229,52 @@ include "comment.php"
 				            </div>
 				        </div>
 				        <!-- End Top Search -->
-
+<!-- PROFILE -->
 				        <div class="container">            
 				            <!-- Start Atribute Navigation -->
 				            <div class="attr-nav">
 				                <ul>
 				                	<li class="search">
-				                		<a href="#"><span class="lnr lnr-magnifier"></span></a>
+				                		<a href="#"><span class="lnr lnr-magnifier"></i></span></a>
 				                	</li><!--/.search-->
-				                	<li class="nav-setting">
-				                		<a href="#"><span class="lnr lnr-cog"></span></a>
-				                	</li><!--/.search-->
+				                	
 				                    <li class="dropdown">
 				                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
-				                            <span class="lnr lnr-cart"></span>
-											<span class="badge badge-bg-1">2</span>
+				                            <i class="fa fa-user-circle" aria-hidden="true" style="font-size:26px;"></i>
+										
 				                        </a>
-				                        <ul class="dropdown-menu cart-list s-cate">
+				                        <ul class="dropdown-menu cart-list ">
+
+										<li class="single-cart-list">	
+											<div>											
+												<p style="font-size:15px;"><?php echo $_SESSION["mail2"]; ?> </p>
+											</div><!--/.cart-list-txt-->
+										</li><!--/.single-cart-list -->
 				                            <li class="single-cart-list">
-				                                <a href="#" class="photo"><img src="assets/images/collection/arrivals1.png" class="cart-thumb" alt="image" /></a>
-				                                <div class="cart-list-txt">
-				                                	<h6><a href="#">arm <br> chair</a></h6>
-				                                	<p>1 x - <span class="price">$180.00</span></p>
+	
+				                                <div>
+				                                	<a href=""><p style="font-size:15px;">PROFILE</p></a>
+				                             
 				                                </div><!--/.cart-list-txt-->
-				                                <div class="cart-close">
-				                                	<span class="lnr lnr-cross"></span>
-				                                </div><!--/.cart-close-->
 				                            </li><!--/.single-cart-list -->
-				                            <li class="single-cart-list">
-				                                <a href="#" class="photo"><img src="assets/images/collection/arrivals2.png" class="cart-thumb" alt="image" /></a>
-				                                <div class="cart-list-txt">
-				                                	<h6><a href="#">single <br> armchair</a></h6>
-				                                	<p>1 x - <span class="price">$180.00</span></p>
-				                                </div><!--/.cart-list-txt-->
-				                                <div class="cart-close">
-				                                	<span class="lnr lnr-cross"></span>
-				                                </div><!--/.cart-close-->
-				                            </li><!--/.single-cart-list -->
-				                            <li class="single-cart-list">
-				                                <a href="#" class="photo"><img src="assets/images/collection/arrivals3.png" class="cart-thumb" alt="image" /></a>
-				                                <div class="cart-list-txt">
-				                                	<h6><a href="#">wooden arn <br> chair</a></h6>
-				                                	<p>1 x - <span class="price">$180.00</span></p>
-				                                </div><!--/.cart-list-txt-->
-				                                <div class="cart-close">
-				                                	<span class="lnr lnr-cross"></span>
-				                                </div><!--/.cart-close-->
-				                            </li><!--/.single-cart-list -->
-				                            <li class="total">
-				                                <span>Total: $0.00</span>
-				                                <button class="btn-cart pull-right" onclick="window.location.href='#'">view cart</button>
-				                            </li>
+
+											<li class="single-cart-list">
+	
+												<div>
+												<a href=""><p style="font-size:15px;">SETTING</p></a>
+												</div><!--/.cart-list-txt-->
+
+											</li><!--/.single-cart-list -->
+
+											<li class="single-cart-list">
+	
+												<div>
+												<a href="http://localhost/project/logout.php"><p style="font-size:15px;">LOGOUT</p></a>
+												</div><!--/.cart-list-txt-->
+
+											</li><!--/.single-cart-list -->
+				                  
+							
 				                        </ul>
 				                    </li><!--/.dropdown-->
 				                </ul>
@@ -307,8 +299,8 @@ include "comment.php"
 				                    <li class="scroll"><a href="#feature">features</a></li>
 				                    <li class="scroll"><a href="#blog">blog</a></li>
 									<li class="scroll"><a href="#blog">Contact</a></li>
-				                    <li><a href="http://localhost/project/register.php" target="paren">Register</a></li>	
-									<li><a href="http://localhost/project/register.php" target="parent">Sign in</a></li>								
+				                    <li><a href="http://localhost/project/register.php">Register</a></li>	
+									<li><a href="http://localhost/project/login.php">Sign in</a></li>								
 								
 									
 				                </ul><!--/.nav -->
@@ -730,7 +722,7 @@ include "comment.php"
 <!-- ================================================================ -->
 								<div class="hm-foot-email">
 									<div class="foot-email-box">
-									<form action="http://localhost/project/index.php" method="post">
+									<form action="" method="post">
 										<input type="email" class="form-control" placeholder="Enter Email Here...." name="email"><br>
     									<input type="text" class="form-control" placeholder="Enter Comment Here...." name="comment"><br>
 										<input type="text" class="form-control" placeholder="Enter Message Here...." name="message"><br>
